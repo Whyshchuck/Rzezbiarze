@@ -33,8 +33,9 @@ namespace Rzeźbiarze_pierścieni
                 bool FoundBottle = false;
                 bool CloseToBase = false;
 
-                Random rnd = new Random(); 
+                Random rnd = new Random();
 
+            Character Player = new Character();
 
             // zmienna na aktualny numer paragrafu
             int ParNumber = 0;
@@ -202,7 +203,7 @@ namespace Rzeźbiarze_pierścieni
                                     "- raz na miesiąc zrywasz ją z głowy i zasadzasz nową. " +
                                     "To symbiotyczne stworzenie, które oczyszcza twój organizm ze związków chemicznych używanych przez ciebie w czasie pracy.");
 
-                            Character Player = Ander;
+                            Player = Ander;
 
                             //Player.PrintName();
                             Console.Write(Player.Name + " - " + Player.Description);
@@ -248,6 +249,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("Po chwili milczenia dodaje: - Ani babki.Dobra?");
                             AnyKey();
                             Console.WriteLine("- OK. - odpowiadasz, ruszając za Leonardem.");
+                            AnyKey();
                             ParNumber = 91;
                             break;
                         }
@@ -294,9 +296,12 @@ namespace Rzeźbiarze_pierścieni
                          "Kolorowe odpryski spływają wzdłuż jego ciała, oplatając piersi i nogi. " +
                          "Człowiek ów nie ma zwykłych rąk, tylko dwa kikuty przedramion, zakończone wieloma długimi palcami o wielu stawach.");
                             Console.WriteLine("Wygląda to dziwnie, żeby nie powiedzieć: obrzydliwie...");
+
+                            Player.StatTest("mind", 0, 0, 53, 140);
                             //Mechanika
                             //Test Umysł:
                             //              Udany - ParNumber = 53.Nieudany - paragraf 140.
+                            AnyKey();
                             break;
                         }
                     case 13:
@@ -842,31 +847,16 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 46:
                         {
-                            /*
-                                       Fidiasz bezwładnie przewraca się na podłogę. Leonardo doskakuje do ciebie, chwyta cię
+                            Print("Fidiasz bezwładnie przewraca się na podłogę. Leonardo doskakuje do ciebie, chwyta cię za ramiona i krzyczy:\n " +
+                                "– Zwariowałeś?! Co ty wyprawiasz?! \n" +
+                                "Złość już opadła.Czujesz, że boli cię ręka, widzisz gramolącego się z podłogi mężczyznę, słyszysz głos Leonarda: " +
+                                "\n– Nic ci nie jest, Fidiaszu?  \n" +
+                                "–  Chyba...  –  Mężczyzna obmacuje twarz, jakby sprawdzając, czy nie odkształciła się od twojego ciosu. " +
+                                "\n– To świr jakiś, co? " +
+                                "\n– Ja... – chcesz coś tłumaczyć. – Ja...");
+                            ParNumber = 8;
 
-
-                                   za ramiona i krzyczy:  
-
-                                       – Zwariowałeś ? !Co ty wyprawiasz ? !
-
-                                        Złość już opadła.Czujesz, że boli cię ręka, widzisz gramolącego się z podłogi mężczyznę,  
-
-                                   słyszysz głos Leonarda:
-
-
-                                       – Nic ci nie jest, Fidiaszu?  
-                                       –  Chyba...  –  Mężczyzna obmacuje twarz, jakby sprawdzając, czy nie odkształciła się od
-
-
-                                   twojego ciosu. – To świr jakiś, co ?
-
-
-                                       – Ja... – chcesz coś tłumaczyć. – Ja...
-
-                                       ParNumber = 8.
-
-                        */
+                        
                             break;
                         }
                     case 47:
@@ -1021,18 +1011,13 @@ namespace Rzeźbiarze_pierścieni
                                 "jeśli przeprowadzisz ją pomyślnie, powiadomimy o tobie władze solarne i pozwolimy ci wrócić do normalnego życia.");
 
                             Print("– A jeśli się nie zgodzę?");
-
+                            AnyKey();
                             Print("– Wiedzą o tobie tylko wtajemniczeni, ty nie znasz nikogo. – Książę nie groził. Po prostu przypominał fakty.");
-
+                            AnyKey();
                             Print("– Nie macie prawa mnie przetrzymywać – odpowiadasz ostro. ");
-
+                            AnyKey();
                             Print("–  Tu ja stanowię prawo, człowieku – tym razem książę podniósł głos, a kula jego głowy poczerniała. – Więc jak, zgadzasz się?");
-
-
-
-                            //Tak – paragraf 103.
-
-                            //Nie – paragraf 61.
+                            Crossroads(new string[] { "Tak", "Nie" }, new int[] { 103, 61 });
 
 
                             break;
@@ -1215,14 +1200,9 @@ namespace Rzeźbiarze_pierścieni
 
                             Print("Drzwi rozsuwają się i staje w nich Leonardo.");
                             Print("– No i jak, namyśliłeś się? Pomożesz nam?  ");
-                            /*
-                            Tak – ParNumber = 10.
-
-
-
-                            Nie – paragraf 16.
-
-                            */
+                            
+                            Crossroads(new string[] { "Tak", "Nie" }, new int[] { 10, 16 });
+                            
                             break;
                         }
                     case 62:
@@ -1254,6 +1234,8 @@ namespace Rzeźbiarze_pierścieni
 
                             Print(" – Naleniuchował się, to teraz ma krzepę – mówi Fidiasz i maca twoje ramię, jakby oceniał jego siłę.Wkurza cię to.");
 
+                            ParNumber = Player.StatTest("mind", 0, 0, 74, 105);
+                            
                             /* Mechanika
 
 
@@ -1413,7 +1395,7 @@ namespace Rzeźbiarze_pierścieni
                                     " Ich kolory i kształty zmieniają się z każdą chwilą, układając w  zaprojektowane przez " +
                                     "specjalistów od  marketingu wzory, które  pozytywnie oddziałują na klienta.");
 
-                            Character Player = Hugo;
+                            Player = Hugo;
 
                             Player.PrintName();
                             Console.Write(" - ");
@@ -1502,7 +1484,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("– To teraz modne – wyjaśnia Leonardo i ruszacie dalej.");
 
 
-
+                            AnyKey();
                             ParNumber = 91;
 
 
@@ -1809,7 +1791,7 @@ namespace Rzeźbiarze_pierścieni
                                     "Twoja głowa przypomina przez to łeb ogromnego owada. Ponieważ byłeś artystą, " +
                                     "Rzeźbiarze potraktowali cię szczególnie i w czasie leczenia dodatkowo podrasowali twój mózg.");
 
-                            Character Player = Jack;
+                            Player = Jack;
 
                             Player.PrintName();
                             Console.Write(" - ");
@@ -1886,6 +1868,8 @@ namespace Rzeźbiarze_pierścieni
                             Print("– Jaki?");
                             AnyKey();
                             Print("– Dowiesz się we właściwym czasie. – Nagle zmienia temat: – Jesteś głodny? ");
+
+                            Crossroads(new string[] { "Jesteś", "Nie jesteś" }, new int[] { 102, 151 });
                             /*
                             Jesteś – ParNumber = 102.  
                             Nie jesteś – paragraf 151.  
@@ -1934,7 +1918,7 @@ namespace Rzeźbiarze_pierścieni
                                     "Stymulacja  cybernetyczna  i  farmakologiczna,  której  używałeś,  osłabiła  twoje  Ego.  " +
                           "Ale masz doskonały refleks, intuicję, a kuracja, jakiej poddano cię w klinice Klanu Rzeźbiarzy, uczyniła cię siłaczem.");
 
-                            Character Player = Philip;
+                            Player = Philip;
 
                             Player.PrintName();
                             Console.Write(" - ");
@@ -1995,7 +1979,7 @@ namespace Rzeźbiarze_pierścieni
                                    "Jesteś chudym  mężczyzną  o  białej  skórze,  wybarwionych  tęczówkach  i  głowie  pokrytej srebrzystą     siecią   łączy. " +
                                 "Praktycznie na całej długości kręgosłupa masz gniazda neurowszczepów.");
 
-                            Character Player = Allan;
+                            Player = Allan;
 
                             Player.PrintName();
                             Console.Write(" - ");
@@ -2026,6 +2010,11 @@ namespace Rzeźbiarze_pierścieni
                                 "Ale  być może macza w tym palce ktoś z moich ludzi. Jesteś jedyną osobą, o której wiem wszystko.");
                             AnyKey();
                             Print("Przygotuj się do drogi. Startujesz za dwie godziny. W międzyczasie Rzeźbiarze poddają twój organizm zabiegom wzmacniającym.");
+
+                            Player.setEgo(Player.Ego + 1);
+                            Player.setMind(Player.Mind + 1);
+                            Player.setBody(Player.Body + 1);
+
                             /*Mechanika  
 
                             Podnieś o 1 punkt każdą cechę (maksymalnie do 9 punktów).  
@@ -2092,7 +2081,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("– Do naszego księcia.");
 
                             ParNumber = 12;
-
+                            AnyKey();
                             break;
                         }
                     case 103:
@@ -2135,6 +2124,8 @@ namespace Rzeźbiarze_pierścieni
                         {
                             Print("Nie potrafisz nad sobą zapanować. Zaciskasz palce i walisz Fidiego w gębę. ");
                             Print("Nie zdążył zareagować. Twoja pięść ląduje dokładnie na jego wytatuowanym nosie. ");
+
+                            ParNumber = Player.StatTest("body", 0, 0, 46, 27);
                             /*
                         Mechanika  
 
@@ -2562,7 +2553,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("Na razie chcesz odlecieć jak najdalej od bazy na Transkolosie.");
 
                             ParNumber = 80;
-
+                            AnyKey();
                             break;
                         }
                     case 131:
@@ -2578,7 +2569,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("To wszystko trwa tylko ułamki sekundy. Tobie wydaje się wiecznością.");
 
                             ParNumber = 11;
-
+                            AnyKey();
                             break;
                         }
                     case 132:
@@ -2599,14 +2590,18 @@ namespace Rzeźbiarze_pierścieni
                             Print("–  Nawet  nie  wiesz,  jak  się  cieszę.  –  Twarz  Leonarda  wykrzywia  się  w  czymś  na podobieństwo uśmiechu.");
 
                             ParNumber = 100;
-
+                            AnyKey();
                             break;
                         }
                     case 133:
                         {
                             Print("Im   dłużej   przeszukujesz   pokój,   tym   większe   masz   szanse   na   znalezienie   czegoś ciekawego.");
 
-                            Print("Ustal, ile kwadransów na to poświęcasz.");
+                            Console.Write("Ustal, ile kwadransów na to poświęcasz:");
+
+                            int Time = Convert.ToInt32(Console.ReadLine());
+
+                            Player.StatTest("mind", 0, Time, 4, 135);
                             /*
                             Mechanika  
                             Test Umysł (podnieś cechę Umysł o wybraną liczbę kwadransów):  
@@ -2744,12 +2739,14 @@ namespace Rzeźbiarze_pierścieni
 
                             Print("Po chwili znów normalnie postrzegasz świat. Jesteś gotów do rozmowy.");
 
+                            Player.setMind(Player.Mind - 1);
+
                             /*Mechanika  
 
                             Zredukuj cechę Umysł o 1 punkt.  
-
-                            ParNumber = 53.  
                             */
+                            ParNumber = 53;
+                            AnyKey();
                             break;
                         }
                     case 141:
@@ -2850,7 +2847,7 @@ namespace Rzeźbiarze_pierścieni
                                    "Jesteś  silny  i  dobrze  zbudowany.  " +
                                 "Palce  bez  paznokci  oraz  wstawki  kolorowej  skóry  na czole i policzkach to jedyne ekstrawagancje twego stroju.");
 
-                            Character Player = Karin;
+                            Player = Karin;
 
                             Player.PrintName();
                             Console.Write(" - ");
@@ -2948,7 +2945,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("– Książę czeka. Kazał cię przyprowadzić, gdy tylko się przebudzisz.");
 
                             ParNumber = 12;
-
+                            AnyKey();
                             break;
                         }
                     case 152:
@@ -2962,13 +2959,16 @@ namespace Rzeźbiarze_pierścieni
                                 "Zamki są otwarte, jednak nie działają automatyczne dźwigary.");
 
                             Print("Nie będzie ci łatwo dźwignąć klapy.");
-                            /*Mechanika  
 
+                            ParNumber = Player.StatTest("mind", 0, 0, 164, 95);
+                            /*Mechanika  
+                            
                             Test Umysł:  
 
                             Udany – paragraf 164.  
                             Nieudany – paragraf 95.  
                             */
+                            AnyKey();
                             break;
                         }
                     case 153:
@@ -2984,7 +2984,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("„To koniec – myślisz – czas wracać”. Wyłączasz systemy bojowe statku i ustalasz kurs na Kolosa.");
 
                             ParNumber = 166;
-
+                            AnyKey();
                             break;
                         }
                     case 154:
@@ -2994,7 +2994,7 @@ namespace Rzeźbiarze_pierścieni
                                 "– istnieje obawa, że jeśli spróbujesz je złamać, to dane się skasują.");
                             Oxygen -= 1;
                             ParNumber = 137;
-
+                            AnyKey();
                             break;
                         }
                     case 155:
@@ -3008,7 +3008,8 @@ namespace Rzeźbiarze_pierścieni
                             //Brak tlenu – paragraf 176.  
 
 
-
+                            AnyKey();
+                            
                             break;
                         }
                     case 156:
@@ -3023,7 +3024,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("Leżące bezwładnie ciało człowieka w skafandrze kosmicznym.");
 
                             ParNumber = 63;
-
+                            AnyKey();
                             break;
                         }
                     case 157:
@@ -3038,7 +3039,7 @@ namespace Rzeźbiarze_pierścieni
                                     "wolę i sprawność.Sztuczne wszczepy ścięgien i procesor walki w twoim mózgu pozwolą ci " +
                                     "zmierzyć się z każdym przeciwnikiem.");
 
-                            Character Player = Khar;
+                            Player = Khar;
 
                             Player.PrintName();
                             Console.Write(" - ");
@@ -3136,7 +3137,7 @@ namespace Rzeźbiarze_pierścieni
                                 "zdarzały się rejsy nielegalne.\n" +
                                 "Zawsze nosisz specjalne rękawice, by ochronić sztucznie unerwione opuszki palców.");
 
-                            Character Player = Dartan;
+                            Player = Dartan;
 
                             Player.PrintName();
                             Console.Write(" - ");
@@ -3240,7 +3241,7 @@ namespace Rzeźbiarze_pierścieni
                                 "Kiedyś mocowałeś na nich specjalny hełm i przystawkę metaboliczną - dzięki temu mogłeś zanurzać się w zadziwiającym świecie Ognistego. " +
                                 "Twój organizm przez pół godziny może żyć bez tlenu.");
 
-                            Character Player = Gerder;
+                            Player = Gerder;
 
                             Player.PrintName();
                             Console.Write(" - ");

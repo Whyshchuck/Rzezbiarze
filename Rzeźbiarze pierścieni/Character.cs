@@ -49,7 +49,7 @@ namespace Rzeźbiarze_pierścieni
         {
             Console.Write(Description);
         }
-        int StatTest(string Stat, int Other, int Mod, int Success, int False)
+        public int StatTest(string Stat, int Other, int Mod, int Success, int False)
         {
             int Roll = rnd.Next(1, 10);
             int Testee;
