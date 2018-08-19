@@ -1,0 +1,7 @@
+C:\Users\Admin\source\repos\Rzeźbiarze pierścieni\Rzeźbiarze pierścieni\bin\Debug\Rzeźbiarze pierścieni.exe.config
+C:\Users\Admin\source\repos\Rzeźbiarze pierścieni\Rzeźbiarze pierścieni\bin\Debug\Rzeźbiarze pierścieni.exe
+C:\Users\Admin\source\repos\Rzeźbiarze pierścieni\Rzeźbiarze pierścieni\bin\Debug\Rzeźbiarze pierścieni.pdb
+C:\Users\Admin\source\repos\Rzeźbiarze pierścieni\Rzeźbiarze pierścieni\obj\Debug\Rzeźbiarze pierścieni.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\Rzeźbiarze pierścieni\Rzeźbiarze pierścieni\obj\Debug\Rzeźbiarze pierścieni.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Rzeźbiarze pierścieni\Rzeźbiarze pierścieni\obj\Debug\Rzeźbiarze pierścieni.exe
+C:\Users\Admin\source\repos\Rzeźbiarze pierścieni\Rzeźbiarze pierścieni\obj\Debug\Rzeźbiarze pierścieni.pdb

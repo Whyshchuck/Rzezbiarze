@@ -1,0 +1,6 @@
+C:\Users\Admin\source\repos\Rzezbiarze pierscieni\Rzeźbiarze pierścieni\bin\Debug\Rzezbiarze pierscieni.exe.config
+C:\Users\Admin\source\repos\Rzezbiarze pierscieni\Rzeźbiarze pierścieni\bin\Debug\Rzezbiarze pierscieni.exe
+C:\Users\Admin\source\repos\Rzezbiarze pierscieni\Rzeźbiarze pierścieni\bin\Debug\Rzezbiarze pierscieni.pdb
+C:\Users\Admin\source\repos\Rzezbiarze pierscieni\Rzeźbiarze pierścieni\obj\Debug\Rzezbiarze pierscieni.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Rzezbiarze pierscieni\Rzeźbiarze pierścieni\obj\Debug\Rzezbiarze pierscieni.exe
+C:\Users\Admin\source\repos\Rzezbiarze pierscieni\Rzeźbiarze pierścieni\obj\Debug\Rzezbiarze pierscieni.pdb
