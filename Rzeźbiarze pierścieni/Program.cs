@@ -155,6 +155,7 @@ namespace Rzeźbiarze_pierścieni
                                         Masz pełne butle z tlenem: zapas na 9 godzin, czyli 36 kwadransów.Zaznacz to na kartce i za każdym razem, gdy pojawia się takie polecenie, odliczaj odpowiednią liczbę kwadransów.Jeśli zużyjesz ostatnią porcję, a nie znajdziesz się w rakiecie powrotnej -umierasz i kończysz grę.
                                         Droga do bazy zajmie ci kwadrans(powrotna - kolejny kwadrans, pamiętaj o tym!).Odlicz ten czas z zapasu swojego tlenu. V > Idz do paragrafu 158.
                                         */
+                            ParNumber = 158;
                             AnyKey();
                             break;
                         }
@@ -315,9 +316,13 @@ namespace Rzeźbiarze_pierścieni
                                 " na którym czerwieni się gigantyczna tarcza Ordmoru.Patrzysz na ten ogrom z przerażeniem i fascynacją. " +
                                 "Już wkrótce tam lecisz. Transkolos znajduje się znacznie bliżej planety, prawie na granicy pierwszego pasa pierścienia.Kierujesz się ku lądowisku.");
                             Console.WriteLine("Nagle zatrzymujesz się.To może być złudzenie, ale wydaje ci się, że za twoimi plecami coś się poruszyło.");
-                            //Cofasz się -ParNumber = 31.
-                            //Idziesz na miejsce startu -paragraf 71.
-                            break;
+                            
+                            Crossroads(new string[] { "Cofasz się", "Idziesz na miejsce startu"}, new int[] {31, 71});
+
+
+                                //Cofasz się -ParNumber = 31.
+                                //Idziesz na miejsce startu -paragraf 71.
+                                break;
                         }
                     case 14:
                         {
@@ -513,7 +518,7 @@ namespace Rzeźbiarze_pierścieni
                         {
                             Console.WriteLine("Tracisz przytomność. Niestety, nigdy jej nie odzyskasz. Twój pozbawiony pilota statek eksploduje.");
                             ParNumber = 38;
-
+                            AnyKey();
                             break;
                         }
                     case 30:
@@ -528,6 +533,10 @@ namespace Rzeźbiarze_pierścieni
                 "doń wrota śluzy są zamknięte, elektroniczny klucz, który otrzymałeś od Rzeźbiarzy, nie działa.Widocznie ktoś z miejscowych musiał zmienić kody dostępu.");
                             Console.WriteLine("Istnieje szansa, że jeśli wejdziesz w sieć bazy, to je odzyskasz.Ale pewności nie masz żadnej, " +
                                 "a na dodatek gmeranie w nieznanej sieci, w której zapewne postawiono jakieś pułapki, może się okazać ryzykowne.Co robisz?");
+
+                            Crossroads(new string[] { "Próbujesz podłączyć swój czip mózgowy do sieci bazy\nRezygnujesz z przeszukania hangaru i idziesz w inne miejsce bazy:",
+                                "Śluza bazy", "Kolektory", "Powrót do kosmolotu" }, new int[] { 50, 145, 128, 64 });
+
                             //Próbujesz podłączyć swój czip mózgowy do sieci bazy -ParNumber = 50.
                             //Rezygnujesz z przeszukania hangaru i idziesz w inne miejsce bazy:
 
@@ -543,7 +552,7 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Jednak nikogo nie widzisz, dobiegasz do miejsca, w którym korytarze się " +
                                 "rozgałęziają. Tu się zatrzymujesz, patrzysz na zegarek. „Czas wracać\" - myślisz.");
                             ParNumber = 116;
-
+                            AnyKey();
                             break;
                         }
                     case 32:
@@ -553,6 +562,7 @@ namespace Rzeźbiarze_pierścieni
                             Console.ReadKey();
                             Print("Rzucasz się w bok, ku ścianie, jednocześnie naciskając spust.");
 
+                            ParNumber = Player.StatTest("body", 0, 0, 73, 24);
 
                             //Test Ciało:
                             //Udany - paragraf 73.
@@ -562,12 +572,12 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 33:
                         {
-                            Console.WriteLine("Czarny chrząszcz jest silniejszy od ciebie -przecież to wojownik. Odpycha cię jednym ruchem ręki i groźnie wysuwa paralizer.");
+                            Console.WriteLine("Czarny chrząszcz jest silniejszy od ciebie - przecież to wojownik. Odpycha cię jednym ruchem ręki i groźnie wysuwa paralizer.");
                             Console.WriteLine("- Nawet nie drgnij -mówi.Stoisz w bezruchu, nie wiedząc, czy czeka cię śmierć, " +
-                                "czy coś jeszcze gorszego.Teraz już nie masz żadnych szans. Najmniejszy wrogi gest może sprowokować żołnierza.");
+                                "czy coś jeszcze gorszego. Teraz już nie masz żadnych szans. Najmniejszy wrogi gest może sprowokować żołnierza.");
 
                             ParNumber = 60;
-
+                            AnyKey();
                             break;
                         }
                     case 34:
@@ -575,6 +585,9 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Natrafiłeś na dziwny podłużny przedmiot.Przy bliższych oględzinach okazało się, " +
                                 "że jest to element pistoletu laserowego. Mogła to być broń, ale równie dobrze mogli go wykorzystywać budowniczowie bazy przy prowadzeniu prac ziemnych.");
                             Console.WriteLine("Czy szukasz dalej?");
+
+                            Crossroads(new string[] { "Tak\nNie - udaj się do innego punktu bazy:", "Duża sala",
+                                "Moduł higieny", "Sypialnie"  }, new int[] {49, 167, 56, 110 });
 
                             //                Tak - ParNumber = 49.
                             //Nie - udaj się do innego punktu bazy:
@@ -617,17 +630,12 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Twój umysł  próbuje penetrować  pamięć komputera.  Niestety,  " +
                                 "nie udało  ci się  złamać zabezpieczeń. Na dodatek osłabiłeś swoje wszczepki – twoje Ego się zmniejsza.");
 
-                            //Mechanika:
+                            Player.setEgo(Player.Ego - 1);
 
-
-
+                            
                             //          Odejmij Ego postaci i punkt.
-
-
-
-                            //ParNumber = 68;
-
-
+                            
+                            ParNumber = 68;
                             break;
                         }
                     case 37:
@@ -1321,6 +1329,15 @@ namespace Rzeźbiarze_pierścieni
                             Oxygen -= 1;
                             Print("Nie masz  tu czego  szukać.Zobaczyłeś wszystko, co  mogłeś zobaczyć, i  znalazłeś,  co mogłeś znaleźć.Opuszczasz bazę.");
 
+                            if (CloseToBase = true)
+                            {
+                                ParNumber = 9;
+                                    }
+                            else
+                            {
+                                ParNumber = 81;
+                                    }
+
                             //Jeśli lądowałeś w pobliżu bazy(tzn.przeszedłeś przez punkt 119) – ParNumber = 9.
 
                             //Jeśli lądowałeś daleko od bazy(tzn.przeszedłeś przez punkt 21) – ParNumber = 81.
@@ -1380,6 +1397,8 @@ namespace Rzeźbiarze_pierścieni
                             Print("Gdybyś powędrował nieco dalej w lewo, po piętnastu minutach doszedłbyś do stojących na wzgórzu kolektorów. " +
                                 "Pamiętaj, że masz ograniczony zasób tlenu w butlach.");
                             Oxygen -= 1;
+
+                            Crossroads(new string[] { "Oglądasz bazę", "Idziesz do kolektorów" }, new int[] {83, 128 });
                             /*
                            Oglądasz bazę – paragraf 83.
 
@@ -1400,6 +1419,9 @@ namespace Rzeźbiarze_pierścieni
 
 
                             Print("Czy twoje Ego jest dostatecznie silne? Czy jesteś pewien swojego Umysłu? I czy w ogóle chcesz się buntować?");
+                            
+                            Crossroads(new string[] { "Tak", "Nie"}, new int[] { 129, 138});
+                            
                             /*
                             Tak – ParNumber = 129.
 
@@ -1766,6 +1788,10 @@ namespace Rzeźbiarze_pierścieni
                                 "Próbujesz też  przejrzeć dane  zawarte w  mózgu komputera, ale  większość z  nich " +
                                 "zablokowano.Przede wszystkim  chciałbyś wiedzieć, gdzie  w układzie  znajdują się  inne " +
                                 "ludzkie bazy i jaki zasięg ma twój pojazd.");
+
+                            ParNumber = Player.StatTest("ego", 0, 0, 17, 36);
+                            AnyKey();
+                            
                             /*
                           Mechanika
 
@@ -2048,9 +2074,9 @@ namespace Rzeźbiarze_pierścieni
                             /*Mechanika  
 
                             Podnieś o 1 punkt każdą cechę (maksymalnie do 9 punktów).  
-
-                            ParNumber = 13.  
                             */
+                            ParNumber = 13;  
+                            
                             break;
                         }
                     case 101:
@@ -2175,6 +2201,12 @@ namespace Rzeźbiarze_pierścieni
                             "Gwiazdy bledną, a czarne niebo ustępuje miejsca gigantycznej tarczy pokrytej " +
                             "barwnymi  plamami  i  deseniami,  naznaczonej  cieniami  innych  księżyców  i  pętlą  pierścieni. " +
                             "Czy decydujesz się poświęcić chwilę czasu, by popatrzeć na to zjawisko?");
+
+                            Crossroads(new string[] { "Tak", "Nie" }, new int[] { 139, 169 });
+                            if (ParNumber == 139)
+                            {
+                                Oxygen -= 1;
+                            }
                             /*Tak – odejmij 1 kwadrans i ParNumber = 139.  
 
                            Nie – paragraf 169.  
@@ -2337,11 +2369,16 @@ namespace Rzeźbiarze_pierścieni
                         {
                             Print("Start  przebiegł  sprawnie,  szybko  opanowałeś  sterowanie  tym  pojazdem.  Rzeźbiarze dysponowali  doskonałym  sprzętem  sprzęgającym  umysł  z  systemem  kosmolotu  " +
                                 "–  musieli mieć takie urządzenia, aby móc wykonywać swoje niesamowite konstrukcje. Przy okazji wzmocniły się twoje wszczepki.");
+
+                            Player.setEgo(Player.Ego + 1);
+
                             /*
                             Mechanika  
 
-                            Powiększ cechę Ego postaci o 1 i ParNumber = 85.  
+                            Powiększ cechę Ego postaci o 1 i .  
                        */
+                            AnyKey();
+                            ParNumber = 85;
                             break;
                         }
                     case 117:
@@ -2378,7 +2415,7 @@ namespace Rzeźbiarze_pierścieni
                             Print("wylądowałeś w pobliżu bazy.");
                             CloseToBase = true;
                             ParNumber = 2;
-
+                            AnyKey();
                             break;
                         }
                     case 120:
@@ -2722,6 +2759,10 @@ namespace Rzeźbiarze_pierścieni
                             Print("Kiedyś mieściła się tu placówka naukowa, potem Rzeźbiarze przejęli ją i zamienili na swoją stację wypadową do działań w pierścieniu.");
                             Print("Lądowisko znajduje się tuż obok bazy. Okazuje się jednak, że nie panujesz nad statkiem tak, " +
                                 "jak byś chciał. Masz pewne kłopoty z podchodzeniem do lądowania.");
+
+                            ParNumber = Player.StatTest("ego", 0, 0, 119, 21);
+                            AnyKey();
+                            
                             /*
                    Mechanika  
                    Test Ego:  
@@ -3102,7 +3143,7 @@ namespace Rzeźbiarze_pierścieni
 
                             Oxygen -= 1;
                             ParNumber = 106;
-
+                            AnyKey();
                             break;
                         }
                     case 159:
