@@ -125,7 +125,7 @@ namespace Rzeźbiarze_pierścieni
             else
             {
                 NewParagraph = False;
-                Console.WriteLine("Niedany!\n");
+                Console.WriteLine("Nieudany!\n");
             }
 
             return NewParagraph;
