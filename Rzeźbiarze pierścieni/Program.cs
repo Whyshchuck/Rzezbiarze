@@ -373,7 +373,10 @@ namespace Rzeźbiarze_pierścieni
                                 " że usłyszałeś cień, echo śladu informacji o tym, że w układzie istnieje placówka administracji solarnej i " +
                                 "że może zdołałbyś tam dolecieć. Ale gdzie ta placówka się znajduje i jak się z nią połączyć - nie wiesz.");
                             //Mechanika
-                            //"Zredukuj cechę Umysł postaci o 1 punkt. ]vParNumber = 68.
+                            //"Zredukuj cechę Umysł postaci o 1 punkt. ]v
+                            Player.setMind(Player.Mind - 1);
+
+                            ParNumber = 68;
                             AnyKey();
                             break;
                         }
@@ -1327,7 +1330,7 @@ namespace Rzeźbiarze_pierścieni
                     case 64:
                         {
                             Oxygen -= 1;
-                            Print("Nie masz  tu czego  szukać.Zobaczyłeś wszystko, co  mogłeś zobaczyć, i  znalazłeś,  co mogłeś znaleźć.Opuszczasz bazę.");
+                            Print("Nie masz  tu czego  szukać.Zobaczyłeś wszystko, co  mogłeś zobaczyć, i  znalazłeś,  co mogłeś znaleźć. Opuszczasz bazę.");
 
                             if (CloseToBase = true)
                             {
@@ -1348,19 +1351,16 @@ namespace Rzeźbiarze_pierścieni
                     case 65:
                         {
 
-                            Print("Szczerze mówiąc, robisz  to bez  przekonania.No bo  cóż jeszcze  można tu  znaleźć? Im dłużej szukasz, tym bardziej się zniechęcasz.");
+                            Print("Szczerze mówiąc, robisz  to bez  przekonania. No bo  cóż jeszcze  można tu znaleźć?");
+                            AnyKey();
+                            Print("Im dłużej szukasz, tym bardziej się zniechęcasz.");
+                            
+                            ParNumber = Player.StatTest("mind", 0, 0, 156, 78);
 
                             /*
-                           Mechanika
-
-
-
                            Test Umysł:
 
                                        Udany – paragraf 156.
-
-
-
                                        Nieudany – paragraf 78.
 
                         */
@@ -1617,9 +1617,13 @@ namespace Rzeźbiarze_pierścieni
                         {
 
                             Print("Tak jak się spodziewałeś – tylko zmarnowałeś czas.Zniechęcony wychodzisz z hangaru. ");
-                            /*
-                        Dokąd idziesz?  
 
+                            Print("Dokąd idziesz?");
+
+                            Crossroads(new string[] { "Kolektory", "Śluza bazy", "Powrót do kosmolotu" }, new int[] { 128, 145, 64 });
+
+
+                                /*
                               Kolektory – paragraf 128.
 
 
@@ -2555,6 +2559,9 @@ namespace Rzeźbiarze_pierścieni
 
 
                             Print("sygnalizuje   komputer.   Widzisz   eksplodujące   wokół   okruchy   pierścienia,   a   przeraźliwe przeciążenie ściska twoje ciało.");
+
+                            ParNumber = Player.StatTest("body", 0, 0, 88, 29);
+                            AnyKey();
                             /*
                                 Mechanika  
 
@@ -2571,6 +2578,9 @@ namespace Rzeźbiarze_pierścieni
                                 "jakieś  piętnaście  minut  w  jedną  stronę.  " +
                                 "Na  dodatek  oddalasz  się  od  swojej rakiety. " +
                                 "Czy chcesz poświęcić tyle czasu? Może nie warto?");
+
+
+
                             /*
                                  Śluza hangaru – paragraf 30.  
                                 Baza – paragraf 145.  
@@ -2599,6 +2609,13 @@ namespace Rzeźbiarze_pierścieni
                                 "że  gra  hałaśliwa  atonalna  muzyka,  że  słyszysz  rozpaczliwy skowyt katowanej kobiety. " +
                                 "A potem obraz rozpryskuje się na tysiące kawałków – pozostaje tylko czerń, a w jej środku pulsuje ciemnozielona bryła. " +
                                 "To obraz blokady cyberprzestrzennej.");
+
+                            ParNumber = Player.StatTest("ego", 0, 0, 108, 131);
+                            if (ParNumber == 108)
+                            {
+                                Player.setEgo(Player.Ego - 1);
+                            }
+
                             /*
                        Mechanika  
                        Test Ego:  
@@ -2726,6 +2743,7 @@ namespace Rzeźbiarze_pierścieni
 
 
                             Print("Przed twoimi oczami przewija się ciąg liczb, barw i kodów. To poszczególne zespoły statku zgłaszają sprawność. ");
+                            Player.StatTest("mind", 0, Time, 7, 48);
                             /*
                                 Mechanika  
                                 Test Umysł:  
@@ -2942,7 +2960,14 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 147:
                         {
-                            Print("Określ czas przeznaczony na przeszukanie pomieszczenia. Im dłużej będziesz szukał, tym większą masz szansę na znalezienie czegoś ciekawego.");
+                            Print("Określ czas przeznaczony na przeszukanie pomieszczenia. " +
+                                "Im dłużej będziesz szukał, tym większą masz szansę na znalezienie czegoś ciekawego.");
+                            Console.Write("podaj liczbę kwadransów: ");
+                            
+
+                            
+
+
                             /*Mechanika  
 
                             Odejmij wybraną liczbę kwadransów.  
@@ -2952,6 +2977,9 @@ namespace Rzeźbiarze_pierścieni
 
                             Nieudany – paragraf 142.  
                             */
+
+                            Player.StatTest("mind", 0, Time, 165, 142);
+
                             break;
                         }
                     case 148:
