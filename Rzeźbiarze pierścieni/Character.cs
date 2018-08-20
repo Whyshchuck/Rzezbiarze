@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Rzeźbiarze_pierścieni
 {
@@ -74,14 +74,41 @@ namespace Rzeźbiarze_pierścieni
 
             {
                 Testee = this.Ego + Mod;
+                Console.Write("\nTest EGO");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".\n");
+                Thread.Sleep(500);
+                
+
+
             }
             else if (Stat == "mind")
             {
                 Testee = this.Mind + Mod;
+                Console.Write("\nTest UMYSŁ");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".\n");
+                Thread.Sleep(500);
             }
             else if (Stat == "body")
             {
                 Testee = this.Body + Mod;
+                Console.Write("\nTest CIAŁO");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".\n");
+                Thread.Sleep(500);
             }
             else
             {
@@ -93,10 +120,12 @@ namespace Rzeźbiarze_pierścieni
             if (Testee < Roll)
             {
                 NewParagraph = Success;
+                Console.WriteLine("Udany!\n");
             }
             else
             {
                 NewParagraph = False;
+                Console.WriteLine("Niedany!\n");
             }
 
             return NewParagraph;
