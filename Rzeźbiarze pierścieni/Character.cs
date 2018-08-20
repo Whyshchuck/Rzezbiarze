@@ -17,6 +17,23 @@ namespace Rzeźbiarze_pierścieni
         public int Mind;
         public int Body;
 
+
+        public Character()
+        {}
+        
+
+        
+        public Character(int addmind, int addbody, int addego, string addname, string adddesc)
+        {
+            Ego = addego;
+            Mind = addmind;
+            Body = addbody;
+            Name = addname;
+            Description = adddesc;
+
+        }
+
+
         public void ShowEgo()
         {
             Console.WriteLine("Ego wynosi " + Ego);

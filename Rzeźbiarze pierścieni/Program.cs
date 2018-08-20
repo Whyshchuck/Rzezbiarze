@@ -193,13 +193,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 6:
                         {
-                            Character Ander = new Character();
-
-                            Ander.setMind(4);
-                            Ander.setBody(2);
-                            Ander.setEgo(8);
-                            Ander.setName("Ander Xor");
-                            Ander.setDesc("technik wirtuali. Obsługiwałeś wirtualne programy użytkowe -sterowałeś automatycznymi próbnikami górniczymi, satelitami łączności, sondami naukowymi." +
+                            Character Ander = new Character(4, 2, 8, "Ander Xor", "technik wirtuali. Obsługiwałeś wirtualne programy użytkowe -sterowałeś automatycznymi próbnikami górniczymi, satelitami łączności, sondami naukowymi." +
                                     "Twoją głowę porasta miękka masa powłoki oczyszczającej " +
                                     "- raz na miesiąc zrywasz ją z głowy i zasadzasz nową. " +
                                     "To symbiotyczne stworzenie, które oczyszcza twój organizm ze związków chemicznych używanych przez ciebie w czasie pracy.");
@@ -1434,12 +1428,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 69:
                         {
-                            Character Hugo = new Character();
-                            Hugo.setMind(7);
-                            Hugo.setBody(3);
-                            Hugo.setEgo(4);
-                            Hugo.setName("Hugo Amazing");
-                            Hugo.setDesc("biznesmen.W swoim czasie prowadziłeś interesy związane z produkcją cyborgów. " +
+                            Character Hugo = new Character(7, 3, 4, "Hugo Amazing", "biznesmen.W swoim czasie prowadziłeś interesy związane z produkcją cyborgów. " +
                                     "W układzie  Reagana chciałeś  handlować z  Klanem Rzeźbiarzy  Pierścieni i " +
                                     "naukowcami badającymi krzemowe Życie w magmowych wylewach na księżycu Ognistym. " +
                                     "Masz dobry  procesor osobowości, znasz  się na  wielu rzeczach.  " +
@@ -1836,12 +1825,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 87:
                         {
-                            Character Jack = new Character();
-                            Jack.setMind(8);
-                            Jack.setBody(3);
-                            Jack.setEgo(3);
-                            Jack.setName("Jack Rodhon");
-                            Jack.setDesc("artysta multimedialny. " +
+                            Character Jack = new Character(8, 3, 3, "Jack Rodhon", "artysta multimedialny. " +
                                   "Byłeś twórcą sztuki wirtualnej - dzieł przekazywanych wprost do mózgu odbiorcy, " +
                                   "łączących doznania zmysłowe (obraz, muzyka) i podświadome (wpływ na funkcjonowanie organów wewnętrznych i " +
                                   "obwodowego układu nerwowego.\nByłeś ciągle naszprycowany różnymi świństwami, " +
@@ -1967,13 +1951,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 94:
                         {
-                            Character Philip = new Character();
-                            Philip.setMind(3);
-                            Philip.setBody(8);
-                            Philip.setEgo(3);
-                            Philip.setName("Philip O’Connor");
-                            Philip.setDesc("ochroniarz. Opiekowałeś się dużymi transportami pieniędzy, różnymi osobistościami,  cennymi  przedmiotami. " +
-                                    "Zawsze  pracowały  raczej  twoje  mięśnie  niż  mózg.\n" +
+                            Character Philip = new Character(3, 8, 3, "Philip O’Connor", "Zawsze  pracowały  raczej  twoje  mięśnie  niż  mózg.\n" +
                                     "Twój partner i szef zarazem zginął w katastrofie, z której ty wyszedłeś cało.\n" +
                                     "Stymulacja  cybernetyczna  i  farmakologiczna,  której  używałeś,  osłabiła  twoje  Ego.  " +
                           "Ale masz doskonały refleks, intuicję, a kuracja, jakiej poddano cię w klinice Klanu Rzeźbiarzy, uczyniła cię siłaczem.");
@@ -2027,12 +2005,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 98:
                         {
-                            Character Allan = new Character();
-                            Allan.setMind(4);
-                            Allan.setBody(2);
-                            Allan.setEgo(8);
-                            Allan.setName("Allan  Ghobaz");
-                            Allan.setDesc("wirtman.  Byłeś  człowiekiem  uzależnionym  od  wirtuali. " +
+                            Character Allan = new Character(4, 2, 8, "Allan  Ghobaz", "wirtman.  Byłeś  człowiekiem  uzależnionym  od  wirtuali. " +
                                    "Nieustająco zażywałeś     narkotyki    i   środki   pobudzające,      wchodziłeś     w   dziesiątki    rzeczywistości wirtualnych. " +
                                    "Brakowało  ci  pieniędzy  na  kuracje  oczyszczające  organizm  –  to  zniszczyło " +
                                    "twoje ciało i umysł. Teraz masz szansę powrotu do normalnego życia.\n" +
@@ -2743,7 +2716,8 @@ namespace Rzeźbiarze_pierścieni
 
 
                             Print("Przed twoimi oczami przewija się ciąg liczb, barw i kodów. To poszczególne zespoły statku zgłaszają sprawność. ");
-                            Player.StatTest("mind", 0, Time, 7, 48);
+
+                            Player.StatTest("mind", 0, 0, 7, 48);
                             /*
                                 Mechanika  
                                 Test Umysł:  
@@ -2937,12 +2911,7 @@ namespace Rzeźbiarze_pierścieni
                     case 146:
                         {
 
-                            Character Karin = new Character();
-                            Karin.setMind(3);
-                            Karin.setBody(7);
-                            Karin.setEgo(4);
-                            Karin.setName("Karin  Ed  Dir");
-                            Karin.setDesc("rzędnik  solarny  niskiej  kategorii.  Kierowałeś  zaopatrzeniem  służb technicznych " +
+                            Character Karin = new Character(3, 7, 4, "Karin  Ed  Dir", "urzędnik  solarny  niskiej  kategorii.  Kierowałeś  zaopatrzeniem  służb technicznych " +
                                    "Dominium  Solarnego  w  układzie  Reagana.  Prowadziłeś  życie  spokojne,  ale nudne, bez szansy na awans.\n" +
                                    "Jesteś  silny  i  dobrze  zbudowany.  " +
                                 "Palce  bez  paznokci  oraz  wstawki  kolorowej  skóry  na czole i policzkach to jedyne ekstrawagancje twego stroju.");
@@ -2978,7 +2947,7 @@ namespace Rzeźbiarze_pierścieni
                             Nieudany – paragraf 142.  
                             */
 
-                            Player.StatTest("mind", 0, Time, 165, 142);
+                            //Player.StatTest("mind", 0, Time, 165, 142);
 
                             break;
                         }
@@ -3139,12 +3108,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 157:
                         {
-                            Character Khar = new Character();
-                            Khar.setMind(2);
-                            Khar.setBody(8);
-                            Khar.setEgo(4);
-                            Khar.setName("Khar");
-                            Khar.setDesc("żołnierz solarny. Co prawda wypadek dopadł cię rok po zakończeniu służby, ale " +
+                            Character Khar = new Character(2, 8, 4, "Khar", "żołnierz solarny. Co prawda wypadek dopadł cię rok po zakończeniu służby, ale " +
                                     "wciąż jeszcze zachowałeś wszystkie cechy dobrego obrońcy Dominium Solarnego – żelazną " +
                                     "wolę i sprawność.Sztuczne wszczepy ścięgien i procesor walki w twoim mózgu pozwolą ci " +
                                     "zmierzyć się z każdym przeciwnikiem.");
@@ -3237,12 +3201,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 163:
                         {
-                            Character Dartan = new Character();
-                            Dartan.setMind(3);
-                            Dartan.setBody(3);
-                            Dartan.setEgo(8);
-                            Dartan.setName("Dartan");
-                            Dartan.setDesc("pilot układowy. Potrafiłeś obsługiwać każde latające urządzenie – " +
+                            Character Dartan = new Character(3, 3, 8, "Dartan", "pilot układowy. Potrafiłeś obsługiwać każde latające urządzenie – " +
                                 "oczywiście nie licząc kutrów nadprzestrzennych. Pracowałeś dla wojska i dla firm transportowych, " +
                                 "zdarzały się rejsy nielegalne.\n" +
                                 "Zawsze nosisz specjalne rękawice, by ochronić sztucznie unerwione opuszki palców.");
@@ -3338,12 +3297,7 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 170:
                         {
-                            Character Gerder = new Character();
-                            Gerder.setMind(7);
-                            Gerder.setBody(2);
-                            Gerder.setEgo(5);
-                            Gerder.setName("Gerder  Hennel");
-                            Gerder.setDesc("– astrobiolog. " +
+                            Character Gerder = new Character(7, 2, 5, "Gerder  Hennel", "– astrobiolog. " +
                                     "Badałeś zadziwiające procesy zachodzące w czynnych wulkanach Ognistego, jednego z satelitów Ordmoru. " +
                                     "Zarejestrowano tam zjawiska wskazujące, że w lawie istnieją tajemnicze organizmy, przedstawiciele krzemowego życia organicznego.\n" +
                                     "Z bliska wyglądasz bardzo dziwnie - twoje humanoidalne ciało pokrywa twarda, szarobrunatna   łuska. " +
