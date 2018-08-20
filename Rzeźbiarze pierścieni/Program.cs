@@ -266,8 +266,9 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Patrzysz na niego, nie odzywając się ani słowem. Podchodzisz bliżej, próbując pojąć jego prawdziwe uczucia i zamiary.");
                             Console.ReadKey();
                             Console.WriteLine("- Zgadzam się - mówisz w końcu i widzisz, jak Leonardo uśmiecha się szeroko. ");
-                            Console.ReadKey();
+                            
                             ParNumber = 100;
+                            AnyKey();
                             break;
                         }
                     case 11:
@@ -279,13 +280,17 @@ namespace Rzeźbiarze_pierścieni
 
                             Console.ReadKey();
                             Console.WriteLine("Lecz ty już tego nie czujesz. Nie żyjesz. ");
-                            Console.ReadKey();
+                            
                             ParNumber = 20;
+                            AnyKey();
                             break;
                         }
                     case 12:
                         {
-                            Console.WriteLine("Wchodzicie do przestronnego pokoju, w którym nie stoją żadne sprzęty oprócz fotela z wirtualnymi przystawkami.Wystrój nadaje temu pomieszczeniu niezwykłe wrażenie. Ściany pokryte są foliami ekranów, na których widnieją zapierające dech w piersiach kosmiczne krajobrazy.Jakby kamerę ustawiono w środku jednego z pierścieni -widać przesuwające się powoli skalne bryły, w tle tarczę Ordmoru naznaczoną wstęgami atmosferycznych gazów i plamami zawirowań.W ten kadr wpełzają czasem tarcze księżyców Ordmoru i owadokształtne sylwetki statków kosmicznych.Przez dłuższą chwilę stoisz zauroczony otaczającym cię zewsząd ogromem.");
+                            Console.WriteLine("Wchodzicie do przestronnego pokoju, w którym nie stoją żadne sprzęty oprócz fotela z wirtualnymi przystawkami.Wystrój nadaje temu pomieszczeniu niezwykłe wrażenie. " +
+                                "Ściany pokryte są foliami ekranów, na których widnieją zapierające dech w piersiach kosmiczne krajobrazy.Jakby kamerę ustawiono w środku jednego z pierścieni -widać przesuwające się powoli " +
+                                "skalne bryły, w tle tarczę Ordmoru naznaczoną wstęgami atmosferycznych gazów i plamami zawirowań.W ten kadr wpełzają czasem tarcze księżyców Ordmoru i " +
+                                "owadokształtne sylwetki statków kosmicznych.Przez dłuższą chwilę stoisz zauroczony otaczającym cię zewsząd ogromem.");
                             Console.ReadKey();
                             Print("Z zadumy wyrywa cię dopiero szept Leonarda:");
                             Console.WriteLine(" - Złóż pokłon!");
@@ -297,7 +302,7 @@ namespace Rzeźbiarze_pierścieni
                          "Człowiek ów nie ma zwykłych rąk, tylko dwa kikuty przedramion, zakończone wieloma długimi palcami o wielu stawach.");
                             Console.WriteLine("Wygląda to dziwnie, żeby nie powiedzieć: obrzydliwie...");
 
-                            Player.StatTest("mind", 0, 0, 53, 140);
+                            ParNumber = Player.StatTest("mind", 0, 0, 53, 140);
                             //Mechanika
                             //Test Umysł:
                             //              Udany - ParNumber = 53.Nieudany - paragraf 140.
@@ -339,7 +344,7 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Teraz rozumiesz, czemu Rzeźbiarz zwariował. Gdy zobaczył to, on, fanatyczny wyznawca pierścieni, twórca rzeźb " +
                             "z kilku brył, rzeźb tak nietrwałych, jak ta wydawała się wieczna - musiał oszaleć.");
                             ParNumber = 127;
-
+                            AnyKey();
                             break;
                         }
                     case 16:
@@ -352,7 +357,7 @@ namespace Rzeźbiarze_pierścieni
                                 "Nie ma paralizera, w kabinie jest za ciasno, by go używać.Skaczesz ku pierwszemu przeciwnikowi.");
                             //Mechanika Test Ciało:
                             //                Udany - ParNumber = 75.Nieudany - paragraf 122.
-
+                            AnyKey();
                             break;
                         }
                     case 17:
@@ -364,7 +369,7 @@ namespace Rzeźbiarze_pierścieni
                                 "że może zdołałbyś tam dolecieć. Ale gdzie ta placówka się znajduje i jak się z nią połączyć - nie wiesz.");
                             //Mechanika
                             //"Zredukuj cechę Umysł postaci o 1 punkt. ]vParNumber = 68.
-
+                            AnyKey();
                             break;
                         }
                     case 18:
@@ -385,6 +390,7 @@ namespace Rzeźbiarze_pierścieni
                             Oxygen -= 1;
                             ParNumber = 67;
 
+                            AnyKey();
                             break;
                         }
                     case 20:
@@ -393,6 +399,7 @@ namespace Rzeźbiarze_pierścieni
                                 "Czy chciałbyś sprawdzić, jak inaczej mogły potoczyć się twoje losy? Możesz zakończyć tę grę już teraz.");
                             Console.WriteLine("Ale możesz rozpocząć ją jeszcze raz: wylosować nową postać, inaczej ją wzmocnić, podjąć inne decyzje...Spróbuj!");
 
+                            AnyKey();
                             break;
                         }
                     case 21:
@@ -402,7 +409,7 @@ namespace Rzeźbiarze_pierścieni
                             CloseToBase = true;
                             ParNumber = 120;
 
-
+                            AnyKey();
                             break;
                         }
                     case 22:
@@ -410,23 +417,30 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Otwierasz oczy i podnosisz się szybko. Nie wiesz, ile czasu leżałeś nieprzytomny, ale chyba niedługo, " +
                                 "skoro strażnicy jeszcze nie nadbiegli.Wszystko cię boli - skóra piecze, mięśnie wpadają w szaleńcze skurcze, oczy łzawią. " +
                                 "System ochronny bazy wyrzucił cię z sieci, nie dostaniesz się do wahadłowca.Kuśtykając, ruszasz korytarzem.");
+                            AnyKey();
                             Console.WriteLine("I wtedy właśnie zza zakrętu wypadają dwaj uzbrojeni żołnierze.Na twój widok zatrzymują się i wysuwają broń.");
+
+                            Crossroads(new string[] { "Strzelasz", "Nie strzelasz" }, new int[] { 73, 24 });
 
                             //Strzelasz - paragraf 73.
                             //Nie strzelasz - paragraf 24.
-
+                            AnyKey();
                             break;
                         }
                     case 23:
                         {
-                            Console.WriteLine("Wypadasz zza zakrętu.Niemal zbijasz z nóg biegnącego z przeciwka człowieka. " +
+                            Console.WriteLine("Wypadasz zza zakrętu. Niemal zbijasz z nóg biegnącego z przeciwka człowieka. " +
                                 "Człowieka? Czarny pancerz, hełm pokryty barwnymi malunkami, broń. To jedna z końcówek mózgu wojskowego bazy.");
                             Console.WriteLine("Próbujesz wykorzystać zaskoczenie i wyrwać z rąk tej istoty paralizer.");
+
+
+
                             // Mechanika
                             //Test Ciało:
                             //Udany - ParNumber = 125.
                             //Nieudany - paragraf 33.
                             //Wynik mniejszy niż 3 - paragraf 77.
+                            AnyKey();
                             break;
                         }
                     case 24:
@@ -434,11 +448,13 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Dostałeś!");
                             Console.ReadKey();
                             Console.WriteLine("Boli, jak strasznie boli! Wypuszczasz broń, padasz na kolana, krzyczysz. " +
-                                "Boli!Wijesz się na ziemi, widząc podchodzących coraz bliżej żołnierzy.");
+                                "Boli! Wijesz się na ziemi, widząc podchodzących coraz bliżej żołnierzy.");
 
+                            ParNumber = Player.StatTest("body", 0, 0, 60, 77);
                             /*
                              Mechanika Test Ciało: Udany - paragraf 60.Nieudany - paragraf 77.
                             */
+                            AnyKey();
                             break;
                         }
                     case 25:
@@ -446,21 +462,30 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Nagle odbierasz komunikat zagrożenia - to rejestratory twojego skafandra namierzyły jakiś obiekt. " +
                             "Poruszający się obiekt!Wstrzymujesz bieg, zastygasz w bezruchu, wsłuchując się w kolejne dane.Są niepewne. " +
                             "To coś niedużego - człowiek lub mały pojazd, poruszający się między skałami, co chwila głuszącymi sygnał.");
+
+                            Crossroads(new string[] {"Ruszasz ku niemu", "Idziesz wprost do bazy" }, new int[] { 28, 67 });
+
                             //Console.WriteLine("[1] Ruszasz ku niemu");
                             //ParNumber = 28.
                             //Console.WriteLine("[2] Idziesz wprost do bazy - paragraf 67.
+                            AnyKey();
                             break;
                         }
                     case 26:
                         {
                             Print("Niczego ciekawego nie zauważyłeś. Nie sądzisz, abyś mógł tu znaleźć coś, co pomoże ci rozwiązać zagadkę. " +
                                 "Jeśli jednak jeszcze raz chcesz przeszukać korytarz, to możesz spróbować.");
+
+                            Crossroads(new string[] {"Szukasz jeszcze raz\nIdziesz do innego pomieszczenia:", "Duża sala", "Moduł higieny",  
+                                 "Sypialnie", "Powrót do kosmolotu"  }, new int[] { 104, 167, 56, 110, 64 });
+
                             //Console.WriteLine("Szukasz jeszcze raz - ParNumber = 104.
                             //Console.WriteLine("Idziesz do innego pomieszczenia:
                             //Duża sala -paragraf 167.
                             //Moduł higieny -paragraf 56.
                             //Sypialnie - paragraf 110.
                             //Powrót do kosmolotu - paragraf 64(odejmij kwadrans).
+                            
                             break;
                         }
                     case 27:
@@ -469,7 +494,7 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("- Stój, durniu!-Leonardo odpycha go w ostatniej chwili. - Zwariowałeś ? !Odmrożeńca zaczepiasz ? !");
                             Console.WriteLine("- Co ty, nie widziałeś? Chciał mnie stuknąć - zaperza się Fidiasz.");
                             ParNumber = 8;
-
+                            AnyKey();
                             break;
                         }
                     case 28:
@@ -477,6 +502,9 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Skręcasz zgodnie ze wskazówkami kompa. Wyciągasz pistolet z olstra przyczepionego do uda.Sygnał narasta. " +
                             "Przytulasz się do skały.Jeśli to wróg, to każdy twój błąd może kosztować cię wiele. Ale to przecież nie musi być wróg...");
                             Console.WriteLine("Obły kształt wypełza spomiędzy skał.Metaliczny żuk wysuwa ku tobie odnóża.");
+
+                            Crossroads(new string[] { "Strzelasz", "Nie strzelasz" }, new int[] { 19, 113 });
+
                             //Strzelasz - ParNumber = 19.
                             //Nie strzelasz -paragraf 113.
                             break;
@@ -925,10 +953,11 @@ namespace Rzeźbiarze_pierścieni
 
 
                                    paralizer.
+                                   */
+                            Crossroads(new string[] { "Strzelasz", "Nie strzelasz" }, new int[] { 73, 24 });
 
-
-
-                                       Strzelasz – paragraf 73.
+                            /*
+                            Strzelasz – paragraf 73.
 
 
                                        Nie strzelasz – paragraf 24.
@@ -1017,9 +1046,10 @@ namespace Rzeźbiarze_pierścieni
                             Print("– Nie macie prawa mnie przetrzymywać – odpowiadasz ostro. ");
                             AnyKey();
                             Print("–  Tu ja stanowię prawo, człowieku – tym razem książę podniósł głos, a kula jego głowy poczerniała. – Więc jak, zgadzasz się?");
+
                             Crossroads(new string[] { "Tak", "Nie" }, new int[] { 103, 61 });
 
-
+                            AnyKey();
                             break;
                         }
                     case 54:
@@ -1821,7 +1851,7 @@ namespace Rzeźbiarze_pierścieni
                         {
                             Print("Strzelasz. Ciało żołnierza wali się na ziemię z łoskotem, a ty czujesz w nozdrzach swąd spalenizny.");
                             ParNumber = 51;
-
+                            AnyKey();
                             break;
                         }
                     case 90:
@@ -2754,13 +2784,16 @@ namespace Rzeźbiarze_pierścieni
                             Print("Wchodzisz  do  hangaru.  W  dużej  hali  jest  ciemno  i  pusto.  Pod  ścianami  stoją  jakieś urządzenia  –  " +
                                 "moduły wahadłowców, zestawy automechaników i kilka urządzeń, których nie rozpoznajesz.");
                             ParNumber = 37;
-
+                            AnyKey();
                             break;
                         }
                     case 142:
                         {
 
                             Print("Jak tam twój zapas tlenu? Masz go tyle, żeby spokojnie wrócić do kosmolotu? Pamiętaj o tym, podejmując kolejne decyzje.");
+
+                            Crossroads(new string[] {"Szukasz dalej\nIdziesz do innego pomieszczenia bazy lub z niej wychodzisz:", "Moduł higieny", "Korytarz", "Duża sala", "Śluza hangaru",
+                                "Kolektory", "Sypialnie", "Powrót do kosmolotu"  }, new int[] {147, 56, 143, 167, 30, 128, 110, 64 });
 
                             /*Szukasz dalej – paragraf 147.  
 
@@ -2778,6 +2811,9 @@ namespace Rzeźbiarze_pierścieni
 
                             Powrót do kosmolotu – paragraf 64 (odejmij kwadrans).  
                              */
+
+                            AnyKey();
+                           
                             break;
                         }
                     case 143:
@@ -2786,6 +2822,8 @@ namespace Rzeźbiarze_pierścieni
                             Print("Podłoga wygląda tak samo jak w śluzie.");
 
                             Print("Idziesz do innego pomieszczenia bazy lub z niej wychodzisz: ");
+                            Crossroads(new string[] {"Moduł higieny", "Korytarz", "Duża sala", "Śluza hangaru",
+                                "Kolektory", "Sypialnie", "Powrót do kosmolotu"  }, new int[] { 56, 143, 167, 30, 128, 110, 64 });
                             /*
                             Moduł higieny – paragraf 56.  
 
@@ -2810,6 +2848,8 @@ namespace Rzeźbiarze_pierścieni
                             Print("Jednak  –  udało  ci  się  wycofać.  Drżącą  dłonią  wyjmujesz  łącze  z  gniazda.  Czujesz  pot zlepiający włosy.Cała operacja zajęła kwadrans.");
 
                             Oxygen -= 1;
+                            Crossroads(new string[] {"Możesz ponownie spróbować złamać sieć\nBadasz inne obiekty bazy:", "Śluza bazy", 
+                                "Kolektory", "Powrót do kosmolotu"  }, new int[] { 50, 145, 128, 64 });
                             /*
                            Możesz ponownie spróbować złamać sieć – ParNumber = 50.  
                            Badasz inne obiekty bazy:  
@@ -2819,6 +2859,7 @@ namespace Rzeźbiarze_pierścieni
                            Kolektory – paragraf 128.  
                            Powrót do kosmolotu – paragraf 64 (odejmij kwadrans).  
                            */
+                            AnyKey();
                             break;
                         }
                     case 145:
