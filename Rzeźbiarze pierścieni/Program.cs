@@ -32,6 +32,8 @@ namespace Rzeźbiarze_pierścieni
                 int Oxygen = 36;
                 bool FoundBottle = false;
                 bool CloseToBase = false;
+            bool KnowSecret = false;
+
             int Days = 0;
 
                 Random rnd = new Random();
@@ -54,6 +56,8 @@ namespace Rzeźbiarze_pierścieni
             void Crossroads(string[] Choices, int[] Addresses)
             {
                 int Num = 1;
+
+                Print("");
 
                 foreach (string Choice in Choices)
                 {
@@ -83,7 +87,7 @@ namespace Rzeźbiarze_pierścieni
                         continue;
                         
                     }
-
+                    Print("");
                     break;
                 }
             }
@@ -255,6 +259,15 @@ namespace Rzeźbiarze_pierścieni
                         {
                             Console.WriteLine("Startujesz z powierzchni Transkolosa.");
                             Console.ReadKey();
+                            if (KnowSecret == false)
+                            {
+                                Print("Kierujesz się do bazy Rzeźbiarzy, na Kolosa");
+                            }
+                            else
+                            {
+                                Crossroads(new string[] { "Kierujesz się do bazy Rzeźbiarzy, na Kolosa", "Chcesz lecieć do pierścieni" }, new int[] { 39, 93});
+                            }
+
                             //Kierujesz się do bazy Rzeźbiarzy, na Kolosa - ParNumber = 39.
                             //Jeśli chcesz lecieć do pierścienia idź do paragrafu, którego numer odpowiada liczbie elementów Rzeźby(powinieneś ją znać z nagrania dokonanego przez martwego Rzeźbiarza).
                             break;
@@ -369,6 +382,8 @@ namespace Rzeźbiarze_pierścieni
                                 "Niepotrzebnie.Nagle Leonardo uskakuje w bok, a do twojej celi wpada dwóch mężczyzn. " +
                                 "Jeden, dość wysoki, trzyma w ręku jakieś urządzenie, drugi, drobniejszy, rzuca się w twoją stronę. " +
                                 "Nie ma paralizera, w kabinie jest za ciasno, by go używać.Skaczesz ku pierwszemu przeciwnikowi.");
+                            ParNumber = Player.StatTest("body", 0, 0, 75, 122);
+
                             //Mechanika Test Ciało:
                             //                Udany - ParNumber = 75.Nieudany - paragraf 122.
                             AnyKey();
@@ -793,7 +808,11 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Nie masz dużo czasu. Zaraz zorientują się, że wytrzymałeś elektroniczne warunkowanie i że twój umysł dalej pracuje normalnie. Musisz działać. " +
                                 "Podrywasz się  błyskawicznie.Walisz na  odlew. " +
                                 "Najpierw Leonarda, potem  Małego. Poprawiasz kopniakiem. Ale z  trzecim nie pójdzie ci tak łatwo. Czujesz uderzenie w nerki. Odwracasz się błyskawicznie.");
-
+                            ParNumber = Player.StatTest("body", 0, 0, 92, 111);
+                            if (ParNumber == 111)
+                            {
+                                Player.setBody(Player.Body - 1);
+                            }
                             /*
                                             Mechanika
 
@@ -807,7 +826,7 @@ namespace Rzeźbiarze_pierścieni
 
                                                         Nieudany – paragraf 111(i zredukuj cechę Ciało o 1 punkt).
                                                         */
-
+                            AnyKey();
                             break;
                         }
                     case 43:
@@ -853,33 +872,17 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 45:
                         {
+                            Print("Nagły impuls poraża twój mózg blaskiem i hukiem. Tak zawsze zaczyna się wejście do " +
+                                "sieci bez  znajomości  haseł.Wydaje ci  się,  że słyszysz  nie tylko  bicie swego  serca,  ale i " +
+                                "klikanie pracujących neuronów.Teraz programy nakładkowe w twoim procesorze zaemulują " +
+                                "twoją osobowość i wprowadzą ją do sieci wraz z całym pakietem aplikacji ochronnych.   " +
+                                "Wchodzisz w nieznaną cyberprzestrzeń, w której mogą czyhać rozliczne pułapki. " +
+                                "Wydaje ci się, że czujesz, jak twoje myśli płyną światłowodami wprost do mózgu centralnego. I tam " +
+                                "oczywiście      zostają zaatakowane       przez programy      defensywne bazy.   Szukasz kodu " +
+                                "wejściowego do śluzy hangaru. Mijają cenne sekundy.");  
+                                ParNumber = Player.StatTest("ego", 0, 0, 136, 70);
+                           
                             /*
-
-                                       Nagły impuls poraża twój mózg blaskiem i hukiem. Tak zawsze zaczyna się wejście do
-
-
-
-                                                       sieci bez  znajomości  haseł.Wydaje ci  się,  że słyszysz  nie tylko  bicie swego  serca,  ale i
-
-
-                                   klikanie pracujących neuronów.Teraz programy nakładkowe w twoim procesorze zaemulują
-
-                                   twoją osobowość i wprowadzą ją do sieci wraz z całym pakietem aplikacji ochronnych.  
-
-                                       Wchodzisz w nieznaną cyberprzestrzeń, w której mogą czyhać rozliczne pułapki.Wydaje
-
-
-
-                                   ci się, że czujesz, jak twoje myśli płyną światłowodami wprost do mózgu centralnego. I tam
-
-
-
-                                   oczywiście      zostają zaatakowane       przez programy      defensywne bazy.   Szukasz kodu
-
-                                   wejściowego do śluzy hangaru. Mijają cenne sekundy.  
-
-                                       Mechanika
-
 
 
                                        Test Ego:
@@ -1048,7 +1051,7 @@ namespace Rzeźbiarze_pierścieni
                     case 54:
                         {
 
-                            Print("Ból!Ból!Ból!");
+                            Print("Ból! Ból! Ból!");
                             Print("Nie wiesz, ile czasu trwa powrót, kleszcze systemu ochronnego zaciskają się na twoim umyśle.");
                             Print("Nie znasz hasła, więc układ odpornościowy sieci traktuje cię jak intruza.");
 
@@ -2794,7 +2797,7 @@ namespace Rzeźbiarze_pierścieni
                             AnyKey();
                             Print("Przed twoimi oczami przewija się ciąg liczb, barw i kodów. To poszczególne zespoły statku zgłaszają sprawność. ");
 
-                            Player.StatTest("mind", 0, 0, 7, 48);
+                            ParNumber = Player.StatTest("mind", 0, 0, 7, 48);
                             /*
                                 Mechanika  
                                 Test Umysł:  
@@ -2851,7 +2854,7 @@ namespace Rzeźbiarze_pierścieni
                             AnyKey();
                             Print("Zielony blask Ordmoru odbija się na szybie twojego hełmu. Stałeś się nieuważny! To może drogo kosztować. " +
                                 "Źle postawiłeś stopę, twoja noga obsuwa się po skalnym stoku. Próbujesz złapać równowagę – czy ci się uda?");
-                            Player.StatTest("body", 0, 0, 107, 173);
+                            ParNumber = Player.StatTest("body", 0, 0, 107, 173);
                             /*
                                 Mechanika  
                                 Test Ciało:  
