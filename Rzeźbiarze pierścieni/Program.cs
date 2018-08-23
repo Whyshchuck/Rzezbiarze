@@ -132,9 +132,11 @@ namespace Rzeźbiarze_pierścieni
                                 "Ścianę nad łóżkiem pokrywa tafla teleekranu, teraz wygaszona. " +
                                 "A nad tobą pochyla się człowiek o twarzy pokrytej wielobarwnymi wszczepkami./n");
                             Console.WriteLine("- Kim jesteś ? - pytasz. - Co się ze mną działo?");
+                            AnyKey();
                             Console.WriteLine("- Już w porządku. - Mężczyzna musi mieć jakieś nakładki głosowe, " +
-                            "bo dźwięk wydobywający się z jego gardła jest bardzo wysoki, prawie na granicy słyszalności. " +
-                            "- Odmroziliśmy cię, chłopie.Dobrze się czujesz? " +
+                            "bo dźwięk wydobywający się z jego gardła jest bardzo wysoki, prawie na granicy słyszalności. ");
+                            AnyKey();
+                            Print("- Odmroziliśmy cię, chłopie.Dobrze się czujesz? " +
                             "Czy wolałbyś jeszcze trochę odpocząć?");
                             Console.WriteLine("Podaje ci ubranie.\n");
 
