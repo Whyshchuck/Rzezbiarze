@@ -66,9 +66,88 @@ namespace Rzeźbiarze_pierścieni
         {
             Console.Write(Description);
         }
+
+        public int StatTest(int Bottomline, string Stat, int Other, int Mod, int Success, int False, int TotalFail)
+        {
+            int Roll = rnd.Next(0, 9);
+            int Testee;
+            
+            if (Stat == "ego")
+
+            {
+                Testee = this.Ego + Mod;
+                Console.Write("\nTest EGO");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".\n");
+                Thread.Sleep(500);
+                
+
+
+            }
+            else if (Stat == "mind")
+            {
+                Testee = this.Mind + Mod;
+                Console.Write("\nTest UMYSŁ");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".\n");
+                Thread.Sleep(500);
+            }
+            else if (Stat == "body")
+            {
+                Testee = this.Body + Mod;
+                Console.Write("\nTest CIAŁO");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".\n");
+                Thread.Sleep(500);
+            }
+            else
+            {
+                Testee = Other;
+            }
+            int NewParagraph;
+
+            
+            
+            if (Roll <= Testee)
+            {
+                NewParagraph = Success;
+                Console.WriteLine("Udany!\n");
+            }
+            else
+            {
+                int Roll2 = rnd.Next(1, 10);
+                if (Roll2 > Bottomline)
+                {
+                    NewParagraph = False;
+                    Console.WriteLine("Nieudany!\n");
+                }
+                else
+                {
+                    NewParagraph = TotalFail;
+                    Console.WriteLine("Spartolony!\n");
+                }
+                    
+            }
+
+            return NewParagraph;
+        }
+
+
         public int StatTest(string Stat, int Other, int Mod, int Success, int False)
         {
-            int Roll = rnd.Next(1, 10);
+            int Roll = rnd.Next(0, 9);
             int Testee;
             if (Stat == "ego")
 
@@ -117,7 +196,7 @@ namespace Rzeźbiarze_pierścieni
 
             int NewParagraph;
 
-            if (Testee < Roll)
+            if (Testee >= Roll)
             {
                 NewParagraph = Success;
                 Console.WriteLine("Udany!\n");

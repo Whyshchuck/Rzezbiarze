@@ -327,8 +327,19 @@ namespace Rzeźbiarze_pierścieni
                                 "który przyciąga liczne asteroidy. Jeśli któryś z tych skalnych okruchów trafi w twój statek, będzie po tobie. " +
                                 "Przedłużając lot „na ślepo\", " +
                                 "jednocześnie zwiększasz szansę ucieczki od Rzeźbiarzy, ale i ryzyko trafienia przez meteor.");
+
+                            Console.ReadLine("Ile dni tak lecisz: ");
+                            int Days = Convert.ToInt32(Console.ReadLine());
+
+                            ParNumber = Player.StatTest("", Days+1, 0, 66, 47);
+
+
+
                             //Mechanika ]Określ, ile dni tak lecisz(od 0 do 9).
-                            //Przetestuj tę liczbę dni(otwórz książkę na dowolnej stronie, sprawdź ostatnią cyfrę).Wynik mniejszy niż wybrana liczba dni - ParNumber = 66.Wynik większy bądź równy od wybranej liczby dni - paragraf 47.
+                            
+                            
+                            //Przetestuj tę liczbę dni(otwórz książkę na dowolnej stronie, sprawdź ostatnią cyfrę).
+                            //Wynik mniejszy niż wybrana liczba dni - ParNumber = 66.Wynik większy bądź równy od wybranej liczby dni - paragraf 47.
 
                             break;
                         }
