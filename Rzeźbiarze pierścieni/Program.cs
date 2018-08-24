@@ -423,6 +423,7 @@ namespace Rzeźbiarze_pierścieni
                             ParNumber = 67;
 
                             AnyKey();
+                            
                             break;
                         }
                     case 20:
@@ -432,6 +433,7 @@ namespace Rzeźbiarze_pierścieni
                             Console.WriteLine("Ale możesz rozpocząć ją jeszcze raz: wylosować nową postać, inaczej ją wzmocnić, podjąć inne decyzje...Spróbuj!");
 
                             AnyKey();
+                            Game = false;
                             break;
                         }
                     case 21:
@@ -545,6 +547,7 @@ namespace Rzeźbiarze_pierścieni
                         {
                             Console.WriteLine("Tracisz przytomność. Niestety, nigdy jej nie odzyskasz. Twój pozbawiony pilota statek eksploduje.");
                             ParNumber = 38;
+                            Game = false;
                             AnyKey();
                             break;
                         }
@@ -3481,6 +3484,8 @@ namespace Rzeźbiarze_pierścieni
                         }
                     case 175:
                         {
+
+                            
                             /*
                         Mechanika  
                         Poznałeś  opis  i  cechy  twojej  postaci.  Rozdziel  dodatkowe  trzy  punkty,  zwiększając  
